@@ -11,7 +11,5 @@ do {
     } else {
         total += +input;
     };
-} while (input !== null)
-if (input === null) {
-    alert(`Общая сумма чисел равна = ${total}`);
-}
+} while (input !== null);
+alert(`Общая сумма чисел равна = ${total}`);
