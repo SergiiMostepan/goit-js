@@ -1,5 +1,5 @@
 'use strict';
-const promptText = `введите пароль`
+const promptText = `введите пароль`;
 const ADMIN_PASSWORD = prompt(promptText);
 let message;
 
