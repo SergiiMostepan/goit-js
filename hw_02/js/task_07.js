@@ -20,9 +20,10 @@ const isLoginUnique = function (allLogins, login) {
     }
 };
 
-
+let login;
 
 const addLogin = function (allLogins, login) {
+    login = prompt('vedi login');
     if (isLoginValid(login) === false) {
         console.log('Ошибка! Логин должен быть от 4 до 16 символов');
         // break;
@@ -37,7 +38,8 @@ const addLogin = function (allLogins, login) {
 };
 
 // Вызовы функции для проверки
-addLogin(allLogins, 'Ajax'); // 'Логин успешно добавлен!'
-addLogin(allLogins, 'robotGoogles'); // 'Такой логин уже используется!'
-addLogin(allLogins, 'Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
-addLogin(allLogins, 'jqueryisextremelyfast'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+addLogin(allLogins, login); // 'Логин успешно добавлен!'
+// addLogin(allLogins, 'robotGoogles'); // 'Такой логин уже используется!'
+// addLogin(allLogins, 'Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+// addLogin(allLogins, 'jqueryisextremelyfast'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(allLogins);
