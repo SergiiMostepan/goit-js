@@ -63,9 +63,9 @@ const account = {
 
         }
         if (type === 'deposit') {
-            console.log(` You deposit in to account - ${totalSumOfType}`);
+            console.log(` You deposit on account - ${totalSumOfType}`);
         } else {
-            console.log(` You withdraw in to account - ${totalSumOfType}`);
+            console.log(` You withdraw from account - ${totalSumOfType}`);
         }
     },
     idCounter() {
