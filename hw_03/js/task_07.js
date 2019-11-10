@@ -1,4 +1,5 @@
 'use strict';
+console.log('task 7 ___________________________________________________')
 const Transaction = {
     DEPOSIT: 'deposit',
     WITHDRAW: 'withdraw',
