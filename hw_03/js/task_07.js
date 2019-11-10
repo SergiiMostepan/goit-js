@@ -5,18 +5,13 @@ const Transaction = {
     WITHDRAW: 'withdraw',
 };
 let id = 0;
-/*
- * Каждая транзакция это объект со свойствами: id, type и amount
- */
+
 
 const account = {
     balance: 0,
-    // История транзакций
+
     transactions: [],
-    /*
-     * Метод отвечающий за добавление суммы к балансу
-     * Создает объект транзакции и вызывает addTransaction
-     */
+
     deposit(amount) {
         this.balance += amount;
         let newDeposit = {
@@ -46,12 +41,10 @@ const account = {
     },
 
     getBalance() {
-        console.log(`In your account are - ${this.balance} UAH`);
+        console.log(`On your account are - ${this.balance} UAH`);
     },
 
-    /*
-     * Метод ищет и возвращает объект транзации по id
-     */
+
     getTransactionDetails(id) {
         for (let i = 0; i < this.transactions.length; i += 1) {
             if (this.transactions[i].id === id) {
