@@ -1,77 +1,86 @@
 'use strict';
-console.log('task 7 ___________________________________________________')
+console.log('task 7 ___________________________________________________');
 const Transaction = {
-    DEPOSIT: 'deposit',
-    WITHDRAW: 'withdraw',
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
 };
 let id = 0;
 
-
 const account = {
-    balance: 0,
+  balance: 0,
 
-    transactions: [],
+  transactions: [],
 
-    deposit(amount) {
-        this.balance += amount;
-        let newDeposit = {
-            id: this.idCounter(),
-            type: Transaction.DEPOSIT,
-            amount,
-        };
-        this.addTransaction(newDeposit);
-    },
+  deposit(amount) {
+    this.balance += amount;
+    const newDeposit = {
+      id: this.idCounter(),
+      type: Transaction.DEPOSIT,
+      amount,
+    };
+    this.addTransaction(newDeposit);
+  },
 
-    withdraw(amount) {
-        if (this.balance < amount) {
-            console.log('Not enought money on your account');
-        } else {
-            this.balance -= amount;
-            let newWithdraw = {
-                id: this.idCounter(),
-                type: Transaction.WITHDRAW,
-                amount,
-            };
-            this.addTransaction(newWithdraw);
-        }
-    },
+  withdraw(amount) {
+    if (this.balance < amount) {
+      console.log('Not enought money on your account');
+    } else {
+      this.balance -= amount;
+      const newWithdraw = {
+        id: this.idCounter(),
+        type: Transaction.WITHDRAW,
+        amount,
+      };
+      this.addTransaction(newWithdraw);
+    }
+  },
 
-    addTransaction(transaction) {
-        this.transactions.push(transaction);
-    },
+  addTransaction(transaction) {
+    this.transactions.push(transaction);
+  },
 
-    getBalance() {
-        console.log(`On your account are - ${this.balance} UAH`);
-    },
+  getBalance() {
+    console.log(`On your account are - ${this.balance} UAH`);
+  },
 
+  getTransactionDetails(id) {
+    // for (let i = 0; i < this.transactions.length; i += 1) {
+    //   if (this.transactions[i].id === id) {
+    //     console.log(`Selected transaction with ID - ${id}`);
+    //     console.table(this.transactions[i]);
+    //   }
+    // }
+    const transaction = this.transactions.find(
+      transaction => id === transaction.id,
+    );
+    if (transaction) {
+      console.log(`Selected transaction with ID - ${id}`);
+      console.table(transaction);
+    }
+  },
 
-    getTransactionDetails(id) {
-        for (let i = 0; i < this.transactions.length; i += 1) {
-            if (this.transactions[i].id === id) {
-                console.log(`Selected transaction with ID - ${id}`);
-                console.table(this.transactions[i]);
-            }
-        };
-    },
+  getTransactionTotal(type) {
+    // let totalSumOfType = 0;
+    // for (let i = 0; i < this.transactions.length; i += 1) {
+    //   if (this.transactions[i].type === type) {
+    //     totalSumOfType += this.transactions[i].amount;
+    //   }
+    // }
+    // if (type === 'deposit') {
+    //   console.log(` You deposit on account - ${totalSumOfType}`);
+    // } else {
+    //   console.log(` You withdraw from account - ${totalSumOfType}`);
+    // }
+    const totalSumOfType = this.transactions.reduce((acc, transaction) => {
+      return transaction.type === type ? acc + transaction.amount : acc;
+    }, 0);
 
-    getTransactionTotal(type) {
-        let totalSumOfType = 0;
-        for (let i = 0; i < this.transactions.length; i += 1) {
-            if (this.transactions[i].type === type) {
-                totalSumOfType += this.transactions[i].amount;
-            }
-
-        }
-        if (type === 'deposit') {
-            console.log(` You deposit on account - ${totalSumOfType}`);
-        } else {
-            console.log(` You withdraw from account - ${totalSumOfType}`);
-        }
-    },
-    idCounter() {
-        id += 1;
-        return id;
-    },
+    console.log(`Account's total ${type} - ${totalSumOfType}`);
+  },
+  idCounter() {
+    id += 1;
+    return id;
+  },
 };
 
 console.log(account.deposit(50));
