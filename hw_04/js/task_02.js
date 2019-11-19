@@ -1,5 +1,6 @@
 'use strict';
 const inventory = {
+<<<<<<< HEAD
   items: ['Монорельса', 'Фильтр'],
   add(itemName) {
     console.log(`Adding ${itemName} to inventory`);
@@ -9,6 +10,17 @@ const inventory = {
     console.log(`Removing ${itemName} from inventory`);
     this.items = this.items.filter(item => item !== itemName);
   },
+=======
+    items: ['Монорельса', 'Фильтр'],
+    add(itemName) {
+        console.log(`Adding ${itemName} to inventory`);
+        this.items.push(itemName);
+    },
+    remove(itemName) {
+        console.log(`Removing ${itemName} from inventory`);
+        this.items = this.items.filter(item => item !== itemName);
+    },
+>>>>>>> 3009746df2b24894cf50b118b4f376e7a4702fc0
 };
 
 const invokeInventoryAction = function (itemName, action) {
