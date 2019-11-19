@@ -5,18 +5,19 @@ const promptText = `Введите число`;
 let input;
 let arr = [];
 
-do {
+while (input !== null) {
     input = prompt(promptText);
-    if (isNaN(input) === true) {
-        alert('Шо ты написал дядь? нужно число');
+    if (isNaN(input)) {
+        alert('Необходимо ввести только числа');
+    } else if (!input) {
+        continue;
     } else {
-        arr.push(input);
+        arr.push(+input);
     }
-} while (input !== null);
+};
 
-arr.pop();
 for (let i of arr) {
-    total += Number(i);
+    total += i;
 }
 console.log(arr);
 console.log(`Общая сумма чисел равна ${total}`);

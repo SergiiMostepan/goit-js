@@ -1,35 +1,32 @@
-'use strict';
-console.log('task 2 ___________________________________________________')
+// 'use strict';
+// console.log('task 2 ___________________________________________________')
 
-function countProps(obj) {
-    const keys = Object.keys(obj);
-    let sum = 0;
+// function countProps(obj) {
+//     const keys = Object.keys(obj);
+//     let sum = 0;
 
-    for (const key of keys) {
-        sum += 1;
-    };
-    return sum;
-};
-console.log(countProps({}));
+//     for (const key of keys) {
+//         sum += 1;
+//     };
+//     return sum;
+// };
+// console.log(countProps({}));
 
-console.log(countProps({
-    name: 'Mango',
-    age: 2
-}));
+// console.log(countProps({
+//     name: 'Mango',
+//     age: 2
+// }));
 
-console.log(countProps({
-    mail: 'poly@mail.com',
-    isOnline: true,
-    score: 500
-}));
+// console.log(countProps({
+//     mail: 'poly@mail.com',
+//     isOnline: true,
+//     score: 500
+// }));
 
 // or_________________________________________________________
 
 function countPropsV(obj) {
-    const keys = Object.keys(obj);
-
-    const sum = keys.length;
-    return sum;
+    return Object.keys(obj).length;
 };
 
 console.log(countPropsV({}));

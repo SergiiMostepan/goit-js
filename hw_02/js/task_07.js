@@ -2,39 +2,31 @@
 
 const allLogins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
-const isLoginValid = function (login) {
-    if (login.length >= 4 && login.length <= 16) {
-        return true;
-    } else {
-        return false;
-    }
-};
+// const isLoginValid = function (login) {
+//     if (login.length >= 4 && login.length <= 16) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+const isLoginValid = login => login.length >= 4 && login.length <= 16;
 
-
-const isLoginUnique = function (allLogins, login) {
-
-    if (allLogins.includes(login)) {
-        return false;
-    } else {
-        return true;
-    }
-};
+const isLoginUnique = (allLogins, login) => !allLogins.includes(login);
 
 let login;
 
 const addLogin = function (allLogins, login) {
     login = prompt('vedi login');
-    if (isLoginValid(login) === false) {
+    if (!isLoginValid(login)) {
         console.log('Ошибка! Логин должен быть от 4 до 16 символов');
         // break;
-    } else if (isLoginUnique(allLogins, login) === false) {
+    } else if (!isLoginUnique(allLogins, login)) {
         console.log('Такой логин уже используется!');
         // break;
     } else {
         allLogins.push(login);
         console.log('Логин успешно добавлен!');
     }
-    return allLogins;
 };
 
 // Вызовы функции для проверки

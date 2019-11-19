@@ -2,10 +2,8 @@
 
 function formatString(strin) {
 
-    if (strin.length > 40) {
-        strin = strin.slice(0, 38) + '...';
-    };
-    return strin;
+    return strin.length > 40 ? `${strin.slice(0, 38)}...` : strin;
+
 }
 
 

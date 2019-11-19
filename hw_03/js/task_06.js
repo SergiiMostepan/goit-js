@@ -21,19 +21,17 @@ const products = [{
         quantity: 2
     },
 ];
-const calculateTotalPrice = (products, key) => {
+const calculateTotalPrice = (arr, key) => {
     let price;
-    for (const product of products) {
-        const keys = Object.values(product);
-        for (const ke of keys) {
-            if (product.name === key) {
-                price = product.price * product.quantity;
-            }
-        };
+
+    for (let i = 0; i < arr.length; i += 1) {
+        if (key === arr[i].name) {
+            price = arr[i].price * arr[i].quantity;
+        }
 
     };
     return price;
-};
+}
 
 
 console.log(calculateTotalPrice(products, 'Радар'));
