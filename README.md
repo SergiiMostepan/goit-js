@@ -8,3 +8,5 @@ home work prodjects, ect.
 [Module-3_Page](https://sergiimostepan.github.io/goit-js/hw_03)
 
 [Module-4_Page](https://sergiimostepan.github.io/goit-js/hw_04)
+
+[Module-5_Page](https://sergiimostepan.github.io/goit-js/hw_05)
