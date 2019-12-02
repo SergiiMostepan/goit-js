@@ -75,15 +75,12 @@ console.log(getNamesSortedByFriendsCount(users));
 console.log('TASK_10______________________________________________________');
 
 const getSortedUniqueSkills = users =>
-    users.reduce((allSkills, user) => {
-        allSkills.push(...user.skills);
-        return allSkills;
-    }, []).reduce((unicSkills, skill) => {
-        if (!unicSkills.includes(skill)) {
-            unicSkills.push(skill);
-        }
-        return unicSkills;
-    }, []).sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+    users
+    .reduce((allSkills, user) => [...allSkills, ...user.skills], [])
+    // .reduce((unicSkills, skill) => !unicSkills.includes(skill) ? unicSkills = unicSkills.concat(skill) : unicSkills, [])
+    .filter((elem, index, unicSkills) => unicSkills.indexOf(elem) === index ? unicSkills = unicSkills.concat(elem) : 0)
+    // .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+    .sort((a, b) => b.localeCompare(a, 'en'))
 
 console.log(getSortedUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]

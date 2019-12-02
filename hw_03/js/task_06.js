@@ -26,7 +26,7 @@ const calculateTotalPrice = (arr, key) => {
 
     for (let i = 0; i < arr.length; i += 1) {
         if (key === arr[i].name) {
-            price = arr[i].price * arr[i].quantity;
+            price += arr[i].price * arr[i].quantity;
         }
 
     };
