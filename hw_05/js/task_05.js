@@ -36,15 +36,11 @@ class Car {
 
     accelerate(value) {
         let currentSpeed = this.speed + value;
-        if (currentSpeed <= this.maxSpeed) {
-            this.speed = currentSpeed;
-        };
+        return currentSpeed <= this.maxSpeed ? this.speed = currentSpeed : this.speed = this.maxSpeed;
     }
     decelerate(value) {
         let currentSpeed = this.speed - value;
-        if (currentSpeed > 0) {
-            this.speed = currentSpeed;
-        };
+        return currentSpeed > 0 ? this.speed = currentSpeed : this.speed = 0;
     }
 
     drive(hours) {
