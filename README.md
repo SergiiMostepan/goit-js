@@ -12,3 +12,5 @@ home work prodjects, ect.
 [Module-5_Page](https://sergiimostepan.github.io/goit-js/hw_05)
 
 [Module-6_Page](https://sergiimostepan.github.io/goit-js/hw_06)
+
+[Module-7_Page](https://sergiimostepan.github.io/goit-js/hw_07)
