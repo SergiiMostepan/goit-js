@@ -84,11 +84,19 @@ console.log('TASK_10______________________________________________________');
 
 const getSortedUniqueSkills = users =>
   users
+<<<<<<< HEAD
+    .reduce((allSkills, user) => [...allSkills, ...user.skills], [])
+    // .reduce((unicSkills, skil!l) => !unicSkills.includes(skill) ? unicSkills = unicSkills.concat(skill) : unicSkills, [])
+    .filter((elem, index, unicSkills) => unicSkills.indexOf(elem) === index)
+    // .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+    .sort((a, b) => b.localeCompare(a, 'en'));
+=======
   .reduce((allSkills, user) => [...allSkills, ...user.skills], [])
   // .reduce((unicSkills, skill) => !unicSkills.includes(skill) ? unicSkills = unicSkills.concat(skill) : unicSkills, [])
   .filter((elem, index, unicSkills) => unicSkills.indexOf(elem) === index)
   // .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
   .sort((a, b) => b.localeCompare(a, 'en'));
+>>>>>>> 6aa24ac946fd2cc19bf9163cf50556ff5cc3d71f
 
 console.log(getSortedUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
