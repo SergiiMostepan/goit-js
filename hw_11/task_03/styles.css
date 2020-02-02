@@ -1,0 +1,22 @@
+.timer {
+    display: flex;
+    border: 2px black solid;
+    font-size: 20px;
+    justify-content: space-between;
+    width: 350px;
+    margin: 100px auto;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.value {
+    margin: 0 auto;
+    font-size: 40px;
+}
+
+.label {
+    margin: 0 auto;
+}
