@@ -12,5 +12,74 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  padding: 20px;
+}
 
+.search-form input {
+  display: block;
+  margin: 20px auto;
+  width: 600px;
+  height: 50px;
+  padding: 8px;
+}
+
+.gallery {
+  padding: 0;
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.photo-card {
+  width: 290px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.photo-card img {
+  width: 290px;
+}
+
+.stats {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid gray;
+}
+
+.stats-item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+@media (max-width: 1023px) {
+  body {
+    padding: 10px;
+  }
+
+  .search-form input {
+    width: 400px;
+  }
+
+  .gallery {
+    width: 400px;
+  }
+
+  .photo-card {
+    width: 400px;
+  }
+
+  .photo-card img {
+    width: 400px;
+  }
 }
