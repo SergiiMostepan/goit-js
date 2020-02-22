@@ -30,7 +30,7 @@ const infScrollInstance = new InfiniteScroll(refs.gallery, {
   },
   history: false,
   responseType: 'text',
-  scrollThreshold: 1000,
+  scrollThreshold: 2000,
 });
 
 infScrollInstance.on('load', response => {
@@ -51,28 +51,10 @@ infScrollInstance.on('load', response => {
   infScrollInstance.appendItems(proxyEL.querySelectorAll('.photo-card'));
 });
 
-// console.log(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${name}&page=1&per_page=12&key=15351993-20fbe64b80ff3985c977b1876`)
-
-// const actions = {
-//   name: refs.input.elements[0].value,
-//   page: 1,
-//   searchImages() {
-//     getAPI(actions.name, this.page).then(data => {
-//       let markup = galleryTemplate(data);
-//       console.log(data);
-//       actions.renderingItems(markup);
-//     });
-
-//   },
-//   renderingItems(items) {
-//     return refs.gallery.insertAdjacentHTML('beforeend', items);
-//   },
-// };
-
 refs.input.addEventListener(
   'input',
   debounce(e => {
-    //   e.preventDefault()
+    // e.preventDefault()
     actions.searchImages(e.target.value);
   }, 500),
 );

@@ -21,6 +21,7 @@ body {
   width: 600px;
   height: 50px;
   padding: 8px;
+  outline: none;
 }
 
 .gallery {
@@ -33,7 +34,7 @@ body {
 }
 
 .photo-card {
-  width: 290px;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   margin-bottom: 30px;
@@ -49,6 +50,7 @@ body {
   display: flex;
   justify-content: space-around;
   border: 1px solid gray;
+  color: rgb(49, 48, 48);
 }
 
 .stats-item {
@@ -76,7 +78,7 @@ body {
   }
 
   .photo-card {
-    width: 350px;
+    max-width: 100%;
   }
 
   .photo-card img {
