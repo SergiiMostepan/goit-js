@@ -1,10 +1,11 @@
-// import getAPI from './apiService.js';
 import {
   debounce
 } from 'lodash';
 import galleryTemplate from '../tamplates/image_list.hbs';
 import InfiniteScroll from 'infinite-scroll';
-// import PNotify from 'pnotify/dist/es/PNotify.js';
+import PNotify from 'pnotify/dist/es/PNotify.js';
+import * as basicLightbox from 'basiclightbox';
+import moduleImageTemplate from '../tamplates/module_image.hbs'
 
 const refs = {
   input: document.querySelector('.search-form'),
@@ -22,6 +23,10 @@ const actions = {
       infScrollInstance.loadNextPage();
     }
   },
+  moduleWindow(currentImage) {
+    const imageInstance = basicLightbox.create(moduleImageTemplate(currentImage));
+    imageInstance.show();
+  }
 };
 
 const infScrollInstance = new InfiniteScroll(refs.gallery, {
@@ -30,19 +35,18 @@ const infScrollInstance = new InfiniteScroll(refs.gallery, {
   },
   history: false,
   responseType: 'text',
-  scrollThreshold: 2000,
+  status: '.loader-ellips',
+  scrollThreshold: 0,
 });
 
 infScrollInstance.on('load', response => {
   const posts = JSON.parse(response);
   if (posts.hits.length < 1) {
     // window.scrollBy(0, -40);
-    // return PNotify.error({
-    //   text: 'Sorry, we could not find anything',
-    //   delay: 2000,
-    // });       временно решение пока не заработает PNotify
-
-    // debounce(alert('Can\'t load items...'), 2000)
+    return PNotify.alert({
+      text: 'Sorry, we could not find anymore',
+      delay: 2000,
+    });
   }
   const markup = posts.hits.map(post => galleryTemplate(post)).join('');
   //   const markup = posts.hits.reduce((string, post) => string + galleryTemplate(post), '')
@@ -59,6 +63,6 @@ refs.input.addEventListener(
   }, 500),
 );
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   return infScrollInstance.loadNextPage();
-// });
+refs.gallery.addEventListener('click', e => {
+  if (e.target.dataset.big) return actions.moduleWindow(e.target)
+})

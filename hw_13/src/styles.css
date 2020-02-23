@@ -25,6 +25,7 @@ body {
 }
 
 .gallery {
+  position: relative;
   padding: 0;
   width: 900px;
   display: flex;
@@ -42,6 +43,7 @@ body {
 
 .photo-card img {
   width: 290px;
+  cursor: pointer;
 }
 
 .stats {
@@ -61,7 +63,9 @@ body {
   align-items: center;
 }
 
-
+.loader-ellips {
+  display: none;
+}
 
 
 @media (max-width: 1023px) {
@@ -83,5 +87,9 @@ body {
 
   .photo-card img {
     width: 350px;
+  }
+
+  .full-size-image img {
+    width: 100%;
   }
 }
