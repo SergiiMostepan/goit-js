@@ -42,7 +42,7 @@ const infScrollInstance = new InfiniteScroll(refs.gallery, {
 infScrollInstance.on('load', response => {
   const posts = JSON.parse(response);
   if (posts.hits.length < 1) {
-    // window.scrollBy(0, -40);
+    window.scrollBy(0, -40);
     return PNotify.alert({
       text: 'Sorry, we could not find anymore',
       delay: 2000,
