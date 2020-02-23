@@ -1,4 +1,4 @@
-(function () {
+(function() {
   function trackScroll() {
     const scrolled = window.pageYOffset;
     const coords = document.documentElement.clientHeight;
@@ -14,7 +14,7 @@
   function backToTop() {
     if (window.pageYOffset > 0) {
       window.scrollBy(0, -80);
-      setTimeout(backToTop, 10);
+      setTimeout(backToTop, 3);
     }
   }
 
