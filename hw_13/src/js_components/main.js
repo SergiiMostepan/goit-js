@@ -15,6 +15,9 @@ const refs = {
 const actions = {
   curentQuerry: '',
   searchImages(querryImage) {
+    infScrollInstance.option({
+      loadOnScroll: true
+    });
     if (!querryImage) return;
     if (querryImage !== this.curentQuerry) {
       this.curentQuerry = querryImage;
@@ -43,6 +46,9 @@ infScrollInstance.on('load', response => {
   const posts = JSON.parse(response);
   if (posts.hits.length < 1) {
     window.scrollBy(0, -40);
+    infScrollInstance.option({
+      loadOnScroll: false
+    });
     return PNotify.alert({
       text: 'Sorry, we could not find anymore',
       delay: 2000,
